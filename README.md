@@ -7,6 +7,9 @@
     <li>
         <a href="#2-setting-up-a-svelte-app">Setting up a Svelte App</a>
     </li>
+    <li>
+        <a href="#3-svelte-basics">Svelte Basics</a>
+    </li>
   </ol>
 </details>
 
@@ -17,8 +20,10 @@ Repo ini saya buat sebagai riwayat sekaligus rangkuman belajar materi svelte. Ac
 # 1. Introduction
 
 - Svelte is compiler for creating reactive web apps & interfaces
+- Svelte is a tool for building fast web applications.
 - Can be used for small parts of a site, or entirely (SPA)
 - Install extension [Svelte for VS Code](https://marketplace.visualstudio.com/items?itemName=svelte.svelte-vscode)
+- Svelte kini memiliki framework official bernama [SvelteKit](https://kit.svelte.dev/)
 
 # 2. Setting up a Svelte App
 
@@ -33,3 +38,39 @@ npm run dev
 ```
 
 - Struktur folder sudah banyak perubahan, tidak seperti pada acuan.
+
+# 3. Svelte Basics
+
+- In Svelte, an application is composed from one or more components.
+- File svelte berformat `.svelte`
+- Isi file svelte terdiri dari 3 tag utama, yaitu script, html, dan style
+
+```html
+<script></script>
+<div></div>
+<style></style>
+```
+
+- File main.js berfungsi sama seperti main.jsx pada reactjs
+- Syntax variable/data:
+
+```html
+<script>
+  let name = "world";
+</script>
+<h1>Hello {name}!</h1>
+```
+
+- Inside the curly braces, we can put any JavaScript we want. Try changing `name` to `name.toUpperCase()`
+- Syntax onClick/function:
+
+```html
+<script>
+  let count = 0;
+  const incrementCount = () => (count += 1);
+</script>
+
+<button on:click="{incrementCount}">
+  Clicked {count} {count === 1 ? "time" : "times"}
+</button>
+```
