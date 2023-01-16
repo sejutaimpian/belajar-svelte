@@ -1,9 +1,16 @@
 <script>
-  let count = 0;
-  const incrementCount = () => (count += 1);
+  let beltColor = "black";
+  const changeColor = () => {
+    beltColor = "orange";
+  };
+  const handleInput = (e) => {
+    beltColor = e.target.value;
+  };
 </script>
 
-<button on:click={incrementCount}>
-  Clicked {count}
-  {count === 1 ? "time" : "times"}
-</button>
+<main>
+  <p style="color: {beltColor};">{beltColor} Color</p>
+  <button on:click={changeColor}>Change beltColor</button>
+  <!-- <input type="text" on:input={handleInput} value={beltColor} /> -->
+  <input type="text" bind:value={beltColor} />
+</main>

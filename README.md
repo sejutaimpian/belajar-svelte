@@ -10,6 +10,9 @@
     <li>
         <a href="#3-svelte-basics">Svelte Basics</a>
     </li>
+    <li>
+        <a href="#4-user-input--data-binding">User input & data binding</a>
+    </li>
   </ol>
 </details>
 
@@ -25,6 +28,8 @@ Repo ini saya buat sebagai riwayat sekaligus rangkuman belajar materi svelte. Ac
 - Install extension [Svelte for VS Code](https://marketplace.visualstudio.com/items?itemName=svelte.svelte-vscode)
 - Svelte kini memiliki framework official bernama [SvelteKit](https://kit.svelte.dev/)
 
+<p align="right"><a href="#top">Go 🔝</a></p>
+
 # 2. Setting up a Svelte App
 
 - Harus intall nodejs
@@ -38,6 +43,8 @@ npm run dev
 ```
 
 - Struktur folder sudah banyak perubahan, tidak seperti pada acuan.
+
+<p align="right"><a href="#top">Go 🔝</a></p>
 
 # 3. Svelte Basics
 
@@ -73,4 +80,36 @@ npm run dev
 <button on:click="{incrementCount}">
   Clicked {count} {count === 1 ? "time" : "times"}
 </button>
+```
+
+- Pemanggilan function pada on:click atau sejenisnya tidak perlu menambahkan kurung `()` karena akan menyebabkan dipanggil otomatis di awal.
+
+<p align="right"><a href="#top">Go 🔝</a></p>
+
+# 4. User input & data binding
+
+- Data binding artinya merujuk kepada variable dan tampilan data yang syncron
+- Contoh data binding pada input:
+
+```html
+<script>
+  let beltColor = "black";
+  const changeColor = () => {
+    beltColor = "orange";
+  };
+  const handleInput = (e) => {
+    beltColor = e.target.value;
+  };
+</script>
+<main>
+  <p style="color: {beltColor};">{beltColor} Color</p>
+  <button on:click="{changeColor}">Change beltColor</button>
+  <input type="text" on:input="{handleInput}" value="{beltColor}" />
+</main>
+```
+
+- Data binding pada input dapat dipersingkat menggunakan `bind:value`
+
+```html
+<input type="text" bind:value="{beltColor}" />
 ```
