@@ -19,6 +19,9 @@
     <li>
         <a href="#6-loops">Loops</a>
     </li>
+    <li>
+        <a href="#7-inline-handler">Inline Handler</a>
+    </li>
   </ol>
 </details>
 
@@ -167,6 +170,33 @@ npm run dev
   <p>There are no people to show...</p>
   {/each}
 </main>
+```
+
+<p align="right"><a href="#top">Go 🔝</a></p>
+
+# 7. Inline Handler
+
+- Jangan menambahkan function normal dengan kurung `()` pada event handler karena akan menjalankan function tersebut di awal. Jika tidak membutuhkan parameter, cukup nama function nya saja, jika membutuhkan parameter, caranya seperti ini:
+
+```html
+<script>
+  const handleClick = (id) => {
+    people = people.filter((person) => person.id != id);
+  };
+</script>
+<button on:click={() => handleClick(person.id)}>delete</button>
+```
+
+- Jika kita membutuhkan informasi DOM nya, tambahkan parameter (bebas) di depannya.
+
+```html
+<script>
+  const handleClick = (e, id) => {
+    people = people.filter((person) => person.id != id);
+    console.log(e);
+  };
+</script>
+<button on:click={(e) => handleClick(e, person.id)}>delete</button>
 ```
 
 <p align="right"><a href="#top">Go 🔝</a></p>
