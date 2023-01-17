@@ -280,3 +280,32 @@ import Modal from "./lib/Modal.svelte";
 ```
 
 <p align="right"><a href="#top">Go 🔝</a></p>
+
+# 11. Props
+
+- Props merujuk kepada property dari tag html ataupun tag component. Contoh props pada code dibawah adalah `align="center"`
+
+```html
+<p align="center">lorem ipsum</p>
+```
+
+- Untuk membuat pops component, cukup membuat variable penampung props dengan export, maka variable props dapat langsung digunakan.
+
+```html
+<!-- Deklarasi props pada App.svelte-->
+<Modal message="Hello, Ninjas!" />
+
+<!-- Pemanggilan props pada Modal.svelte -->
+<script>
+  export let message;
+</script>
+<p>{message}</p>
+```
+
+- Props dapat menampung default value sebagaimana variable biasanya.
+
+```js
+export let message = "Default value";
+```
+
+<p align="right"><a href="#top">Go 🔝</a></p>
