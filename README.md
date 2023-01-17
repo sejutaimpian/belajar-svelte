@@ -25,6 +25,9 @@
     <li>
         <a href="#8-conditionals">Conditionals</a>
     </li>
+    <li>
+        <a href="#9-components">Components</a>
+    </li>
   </ol>
 </details>
 
@@ -219,6 +222,37 @@ npm run dev
 {:else}
 <p>Not greater than 5</p>
 {/if}
+```
+
+<p align="right"><a href="#top">Go 🔝</a></p>
+
+# 9. Components
+
+- Tiap satu file `.svelte` biasanya berisi satu component kecuali App.svelte sebagai Root Components. Karena component dapat dipanggil kembali, maka besar kemungkinan akan terjadi nested component
+
+- Cara membuat component tinggal membuat file `.svelte` baru pada folder lib lalu coding svelte seperti biasa pada 3 bagian tag.
+
+```html
+<!-- ./lib/Modal.svelte -->
+<script>
+  let showModal = true;
+</script>
+
+{#if showModal}
+<div class="backdrop">
+  <div class="modal">
+    <p>Sign up for offers!</p>
+  </div>
+</div>
+{/if}
+
+<style></style>
+```
+
+- Cara memanggil/import `.svelte` sama seperti pemanggilan module pada javascript. Sesuaikan folder location nya.
+
+```js
+import Modal from "./lib/Modal.svelte";
 ```
 
 <p align="right"><a href="#top">Go 🔝</a></p>
