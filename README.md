@@ -31,6 +31,12 @@
     <li>
         <a href="#10-css--conditional-styles">CSS & Conditional styles</a>
     </li>
+    <li>
+        <a href="#11-props">Props</a>
+    </li>
+    <li>
+        <a href="#12-event-forwarding">Event Forwarding</a>
+    </li>
   </ol>
 </details>
 
@@ -306,6 +312,51 @@ import Modal from "./lib/Modal.svelte";
 
 ```js
 export let message = "Default value";
+```
+
+<p align="right"><a href="#top">Go 🔝</a></p>
+
+# 12. Event Forwarding
+
+- Event forwarding merujuk kepada function event handler pada suatu component diteruskan kepada parent nya, simple nya, eventnya berada di child tapi functionnya berada di parent.
+- Jika props sama dengan property, maka dapat disingkat
+
+```js
+<Modal {showModal} />
+// Sama dengan
+<Modal showModal={showModal} />
+```
+
+- Untuk membuat event forwarding cukup menambahkan event pada child tanpa value, lalu menambahkan event handler pada tag component di parent. Contoh
+
+```js
+// App.svelte
+<script>
+  import Modal from "./lib/Modal.svelte";
+  let showModal = false;
+  let toggleModal = () => {
+    showModal = !showModal;
+  };
+</script>
+<main>
+  <Modal message="Hello, Ninjas!" {showModal} on:click={toggleModal} />
+  <button on:click={toggleModal}>Open Modal</button>
+</main>
+
+// Modal.svelte
+<script>
+  export let showModal = false;
+  export let isPromo = false;
+  export let message;
+</script>
+{#if showModal}
+<!-- svelte-ignore a11y-click-events-have-key-events -->
+<div class="backdrop" class:promo={isPromo} on:click>
+  <div class="modal">
+    <p>{message}</p>
+  </div>
+</div>
+{/if}
 ```
 
 <p align="right"><a href="#top">Go 🔝</a></p>
