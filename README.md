@@ -28,6 +28,9 @@
     <li>
         <a href="#9-components">Components</a>
     </li>
+    <li>
+        <a href="#10-css--conditional-styles">CSS & Conditional styles</a>
+    </li>
   </ol>
 </details>
 
@@ -253,6 +256,27 @@ npm run dev
 
 ```js
 import Modal from "./lib/Modal.svelte";
+```
+
+<p align="right"><a href="#top">Go 🔝</a></p>
+
+# 10. CSS & Conditional styles
+
+- `App.css` merupakan global css yang akan memberikan style kepada seluruh components turunannya. Pemanggilan `App.css` terdapat pada file `main.js`, bukan pada index.html
+- tag `<style></style>` yang terdapat pada `components.svelte` merupakan spesifik css, yaitu hanya memberikan style hanya untuk component tersebut saja.
+- Conditional styles merupakan bagian dari [Element directives](https://svelte.dev/docs#template-syntax-element-directives).
+
+```html
+<script>
+  let isPromo = true;
+</script>
+<div class:promo="{isPromo}">Hello world</div>
+<style>
+  .promo {
+    background: crimson;
+    color: white;
+  }
+</style>
 ```
 
 <p align="right"><a href="#top">Go 🔝</a></p>
