@@ -22,6 +22,9 @@
     <li>
         <a href="#7-inline-handler">Inline Handler</a>
     </li>
+    <li>
+        <a href="#8-conditionals">Conditionals</a>
+    </li>
   </ol>
 </details>
 
@@ -197,6 +200,25 @@ npm run dev
   };
 </script>
 <button on:click={(e) => handleClick(e, person.id)}>delete</button>
+```
+
+<p align="right"><a href="#top">Go 🔝</a></p>
+
+# 8. Conditionals
+
+- Pada svelte, if (conditionals) bagian dari [template syntax](https://svelte.dev/docs#template-syntax)
+
+```html
+<script>
+  let num = 5;
+</script>
+{#if num > 20}
+<p>Greater than 20</p>
+{:else if num > 5}
+<p>Greater than 5</p>
+{:else}
+<p>Not greater than 5</p>
+{/if}
 ```
 
 <p align="right"><a href="#top">Go 🔝</a></p>
