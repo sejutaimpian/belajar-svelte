@@ -13,6 +13,9 @@
     <li>
         <a href="#4-user-input--data-binding">User input & data binding</a>
     </li>
+    <li>
+        <a href="#5-reactive-value">Reactive value</a>
+    </li>
   </ol>
 </details>
 
@@ -113,3 +116,28 @@ npm run dev
 ```html
 <input type="text" bind:value="{beltColor}" />
 ```
+
+<p align="right"><a href="#top">Go 🔝</a></p>
+
+# 5. Reactive value
+
+- Reactive value (bisa juga disebut reactive statement) pada svelte mengacu kepada variable _alien_ `$:` yang menampung variable lain. Value pada `$:` akan reactive (berubah otomatis) ketika variable lain didalamnya berubah.
+
+```html
+<script>
+  let firstName = "Udin";
+  let lastName = "Saepudin";
+  $: fullName = `${firstName} ${lastName}`;
+</script>
+<main>
+  <!-- Dengan variable biasa -->
+  <!-- <p>{firstName} {lastName} - {beltColor} Color</p> -->
+  <!-- Dengan variable $: -->
+  <p>{fullName} - {beltColor} Color</p>
+  <input type="text" bind:value="{firstName}" />
+  <input type="text" bind:value="{lastName}" />
+  <input type="text" bind:value="{beltColor}" />
+</main>
+```
+
+<p align="right"><a href="#top">Go 🔝</a></p>

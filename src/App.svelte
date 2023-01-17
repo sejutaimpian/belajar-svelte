@@ -1,5 +1,10 @@
 <script>
+  let firstName = "Udin";
+  let lastName = "Saepudin";
   let beltColor = "black";
+
+  $: fullName = `${firstName} ${lastName}`;
+
   const changeColor = () => {
     beltColor = "orange";
   };
@@ -9,8 +14,9 @@
 </script>
 
 <main>
-  <p style="color: {beltColor};">{beltColor} Color</p>
-  <button on:click={changeColor}>Change beltColor</button>
-  <!-- <input type="text" on:input={handleInput} value={beltColor} /> -->
+  <!-- <p>{firstName} {lastName} - {beltColor} Color</p> -->
+  <p>{fullName} - {beltColor} Color</p>
+  <input type="text" bind:value={firstName} />
+  <input type="text" bind:value={lastName} />
   <input type="text" bind:value={beltColor} />
 </main>
