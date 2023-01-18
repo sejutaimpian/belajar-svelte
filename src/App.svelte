@@ -20,7 +20,7 @@
 
 <Modal message="Hello, Ninjas!" {showModal} on:click={toggleModal} />
 <main>
-  <button on:click={toggleModal}>Open Modal</button>
+  <button on:click|once={toggleModal}>Open Modal</button>
   {#each people as person (person.id)}
     <h4>{person.name}</h4>
     {#if person.beltColour === "black"}

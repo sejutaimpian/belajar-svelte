@@ -37,6 +37,9 @@
     <li>
         <a href="#12-event-forwarding">Event Forwarding</a>
     </li>
+    <li>
+        <a href="#13-event-modifier">Event Modifier</a>
+    </li>
   </ol>
 </details>
 
@@ -357,6 +360,31 @@ export let message = "Default value";
   </div>
 </div>
 {/if}
+```
+
+- Muncul masalah: Modal tetap tertutup pada saat klik konten pada modal (Bukan background)
+
+<p align="right"><a href="#top">Go 🔝</a></p>
+
+# 13. Event Modifier
+
+- Event modifier termasuk bagian dari [Element directives `on:*eventName*`](https://svelte.dev/docs#template-syntax-element-directives-on-eventname)
+- Event modifier mengacu kepada bagaimana sebuah event dipekerjakan
+- Cara menggunakan event modifier yaitu dengan cara menambahkan simbol pipe `|` setelah event
+- Event modifier `self` membuat sebuah event hanya akan berjalan pada tag sendiri/ bukan turunannya.
+
+```js
+<div class="backdrop" class:promo={isPromo} on:click|self>
+  <div class="modal">
+    <p>{message}</p>
+  </div>
+</div>
+```
+
+- Event modifier `once` membuat sebuah event hanya berjalan sekali.
+
+```svelte
+<button on:click|once={toggleModal}>Open Modal</button>
 ```
 
 <p align="right"><a href="#top">Go 🔝</a></p>
